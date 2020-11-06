@@ -40,7 +40,7 @@ public class Main {
         pencil.show();
 
         Ruler ruler = new Ruler(300, InstrMaterials.WOOD.toString());
-
+        Ruler ruler1 = new Ruler(300, InstrMaterials.WOOD.toString());
 
         Protractor protractor = new Protractor(300,InstrMaterials.IRON.toString());
         int [] figureAngles;

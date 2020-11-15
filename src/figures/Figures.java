@@ -2,7 +2,7 @@ package figures;
 
 public enum Figures {
     TRIANGLE(3,"31;60;90"),
-    RECTANGLE(4,"30;60;150;120"),
+    TETRAGON(4,"30;60;150;120"),
     PENTAGON(5,"90;110;80;100;160");
     int anglesNum;
     String anglesValues;
@@ -24,5 +24,6 @@ public enum Figures {
     public int getRightAnglesSum() {
         return  (anglesNum-2)*180;
     }
+
 
 }

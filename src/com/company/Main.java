@@ -1,33 +1,12 @@
 package com.company;
-
-
-import exceptions.MeasureException;
+import books.Book;
+import books.BookType;
+import books.PageType;
 import figures.Figures;
-import mark.Pen;
-import mark.Pencil;
+import mark.*;
 import measure.Protractor;
 import measure.Ruler;
 
-enum InstrMaterials {
-    WOOD,
-    IRON,
-    PLASTIC;
-}
-enum PencilColors {
-    SIMPLE,
-    RED,
-    GREEN,
-    YELLOW,
-    BLUE,
-    BROWN,
-    BLACK,
-    PURPLE
-}
-enum PenColors {
-    BLUE,
-    RED,
-    PURPLE
-}
 public class Main {
 
     public static void main(String[] args) {
@@ -40,7 +19,7 @@ public class Main {
         pencil.show();
 
         Ruler ruler = new Ruler(300, InstrMaterials.WOOD.toString());
-        Ruler ruler2 = new Ruler(300, InstrMaterials.WOOD.toString());
+
 
         Protractor protractor = new Protractor(300,InstrMaterials.IRON.toString());
         int [] figureAngles;
@@ -57,7 +36,9 @@ public class Main {
         ruler.show();
         protractor.show();
         System.out.println("Finish");
+        Book notepad = new Book(30, BookType.NOTEPAD, PageType.CELL);
 
+        //Book.Door door = new Book().new Door();
     }
 
 }

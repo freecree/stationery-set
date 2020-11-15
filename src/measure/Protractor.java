@@ -4,7 +4,7 @@ import exceptions.MeasureException;
 import figures.Figures;
 
 public class Protractor extends Ruler {
-    private int tempFigureAngles[];
+    private int[] tempFigureAngles = new int[1];
     private int tempAngle;
 
     public Protractor(int length, String material) {

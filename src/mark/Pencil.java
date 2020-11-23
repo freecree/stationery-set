@@ -3,8 +3,8 @@ package mark;
 public class Pencil extends MarkInstrument {
     private String softness;  //мягкость
 
-    public Pencil(String color, String material, int length, String softness) {
-        super(color, material, length);
+    public Pencil(String color, String material, int length, boolean canWipe, String softness) {
+        super(color, material, length, canWipe);
         this.softness = softness;
     }
 

@@ -4,30 +4,48 @@ import java.util.ArrayList;
 
 public class Book
 {
-    private int amountPages;
+    private int amountLeaves;
     private BookType bookType;
-    private PageType pageType;
-    ArrayList<Page> pages = new ArrayList<Page>();
-    public Book(int amountPages, BookType bType, PageType pType) {
-        this.amountPages = amountPages;
+    //ArrayList<Page> pages = new ArrayList<Page>();
+    ArrayList<Leaf> leaves = new ArrayList<Leaf>();
+    public Book(int amountLeaves, BookType bType, PageType pType, int pageCapacity) {
+        this.amountLeaves = amountLeaves;
         bookType = bType;
-        pageType = pType;
-    }
-    public void open() {
-        System.out.println("Book opened on " + BookMark.getPageNumber() );
-    }
-    public static class BookMark {
-        static int pageNumber;
-        public BookMark() {
-            pageNumber = 0;
-        }
-        void setPageNumber(int n) {
-            pageNumber = n;
-        }
-        static int getPageNumber() {
-            return pageNumber;
+        for (int i = 0; i < amountLeaves; i++) {
+            leaves.add(new Leaf(pType, pageCapacity));
         }
     }
+    public void open(int pageNum) {
+        System.out.println("Book opened on " + pageNum );
+    }
+    public Page getPage(int n) {
+        //try {
+            if(n%2 != 0) {
+                return leaves.get((n-1)/2).getFirstPage();
+            } else {
+                return leaves.get((n-1)/2).getSecondPage();
+            }
+//        } catch (Exception ex) {
+//            return new Page();
+//        }
 
-
+    }
+    public void showRecords() {
+        for (int i = 0; i < amountLeaves; i++) {
+            System.out.println("leave "+i);
+            leaves.get(i).showRecords();
+        }
+    }
 }
+//    public class BookMark {
+//        int currentPageNumber;
+//        public BookMark() {
+//            currentPageNumber = 0;
+//        }
+//        void put(int n) {
+//            currentPageNumber = n;
+//        }
+//        int open() {
+//            return currentPageNumber;
+//        }
+//    }

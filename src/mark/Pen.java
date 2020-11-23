@@ -4,8 +4,8 @@ public class Pen extends MarkInstrument {
     private double line_thickness;  //жирность
     private double distance;  //км
 
-    public Pen(String color, String material, int length, double line_thickness, double distance) {
-        super(color, material, length);
+    public Pen(String color, String material, int length, boolean canWipe, double line_thickness, double distance) {
+        super(color, material, length, canWipe);
         this.line_thickness = line_thickness;
         this.distance = distance;
     }

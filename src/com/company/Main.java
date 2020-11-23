@@ -57,6 +57,10 @@ public class Main {
         records.add("3");
         System.out.println(records.size());
 
+        System.out.println("Changed in Page-nested");
+        System.out.println("Changed in Page-nested");
+        System.out.println("Changed in Page-nested");
+
     }
 
 }

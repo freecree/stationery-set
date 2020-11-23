@@ -1,7 +1,6 @@
 package mark;
 
 import books.ContentTypes;
-import books.Page;
 import figures.Figures;
 
 abstract class MarkInstrument {

@@ -1,6 +1,7 @@
 package mark;
 
 import books.ContentTypes;
+import books.Leaf;
 import figures.Figures;
 
 abstract class MarkInstrument {
@@ -17,16 +18,16 @@ abstract class MarkInstrument {
 //    public void mark() {
 //        System.out.println("Marking");
 //    }
-    public void write(Page page, String content) {
-        Page.Content tempcont = new Page.Content(canWipe, ContentTypes.TEXT, content);
+    public void write(Leaf.Page page, String content) {
+        Leaf.Page.Content tempcont = new page.Content(canWipe, ContentTypes.TEXT, content);
         page.addContent(tempcont);
     }
-    public void paint(Page page, String content) {
-        Page.Content tempcont = new Page.Content(canWipe, ContentTypes.PICTURE, content);
+    public void paint(Leaf.Page page, String content) {
+        Leaf.Page.Content tempcont = new Leaf.Page.Content(canWipe, ContentTypes.PICTURE, content);
         page.addContent(tempcont);
     }
-    public void draw(Page page, Figures content) {
-        Page.Content tempcont = new Page.Content(canWipe, ContentTypes.FIGURE, content.toString());
+    public void draw(Leaf.Page page, Figures content) {
+        Leaf.Page.Content tempcont = new Leaf.Page.Content(canWipe, ContentTypes.FIGURE, content.toString());
         page.addContent(tempcont);
     }
     void show() {

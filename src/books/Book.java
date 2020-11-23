@@ -18,7 +18,7 @@ public class Book
     public void open(int pageNum) {
         System.out.println("Book opened on " + pageNum );
     }
-    public Page getPage(int n) {
+    public Leaf.Page getPage(int n) {
         //try {
             if(n%2 != 0) {
                 return leaves.get((n-1)/2).getFirstPage();

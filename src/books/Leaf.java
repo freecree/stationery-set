@@ -47,7 +47,7 @@ public class Leaf {
     }
     public class Page {
         private int pageCapacity = 10;
-        private ArrayList<books.Page.Content> records = new ArrayList<books.Page.Content>();
+        private ArrayList<Content> records = new ArrayList<Content>();
         private PageType type;
 
         Page() {
@@ -74,7 +74,7 @@ public class Leaf {
             this.pageCapacity = pageCapacity;
         }
 
-        public void addContent(books.Page.Content content) {
+        public void addContent(Content content) {
             records.add(content);
         }
 
@@ -83,7 +83,7 @@ public class Leaf {
         }
 
         public void delete(int a1, int a2) {
-            Iterator<books.Page.Content> iter = records.iterator();
+            Iterator<Content> iter = records.iterator();
             for (int i = a1; i < a2; i++) {
                 if (records.get(i) != null) {
                     records.remove(i);
@@ -104,7 +104,7 @@ public class Leaf {
             }
         }
 
-        public static class Content {
+        public class Content {
             private boolean canWipe;
             private ContentTypes contentType;
             private String content;

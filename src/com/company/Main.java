@@ -45,22 +45,32 @@ public class Main {
         pen.write(leaf.getFirstPage(),"Some record4");
         pen.write(leaf.getFirstPage(),"Some record5");
         pen.write(leaf.getFirstPage(),"Some record6");
+        //leaf.showRecords();
+        //leaf.delete(0,2);
 
-        //Leaf newLeaf = knife.cut(leaf,0.8);
-//        System.out.println("Leaf: ");
-//        leaf.showRecords();
-//        System.out.println("NewLeaf: ");
-//        newLeaf.showRecords();
-        ArrayList<String> records = new ArrayList<String>();
-        records.add("1");
-        records.add("2");
-        records.add("3");
-        System.out.println(records.size());
+        Leaf newLeaf = knife.cut(leaf,0.8);
+        System.out.println("\nMain: \n");
 
-        System.out.println("Changed in Page-nested");
-        System.out.println("Changed in Page-nested");
-        System.out.println("Changed in Page-nested");
+        System.out.println("\n Leaf: \n");
+        leaf.showRecords();
+        System.out.println("\n NewLeaf: \n");
+        newLeaf.showRecords();
 
+        //int a = del(5, 1);
+        //System.out.println("a: "+ a);
+
+    }
+    public static int del(int a, int b) {
+        try {
+            return a/b;
+        } catch (Exception ex) {
+            ex.getMessage();
+            System.out.println("Oh no");
+        } finally {
+            System.out.println("finally");
+
+        }
+        return 0;
     }
 
 }

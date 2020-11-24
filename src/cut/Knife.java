@@ -1,19 +1,28 @@
 package cut;
 
 import books.Leaf;
+import exceptions.SameObjectsException;
 
 public class Knife implements CuttingTool {
-    public Leaf cut(Leaf leaf, double koef) {
-        int border = (int)Math.round(leaf.getFirstPage().getPageCapacity()*(1-koef));
-        System.out.println("border: "+border);
-        Leaf newLeaf = leaf; //new Leaf(leaf.getFirstPage().getType(), leaf.getPageCapacity());
-        leaf.delete(border, leaf.getFirstPage().getPageCapacity());
-        System.out.println("Leaf: ");
-        leaf.showRecords();
-        newLeaf.delete(0,border);
-        //newLeaf.setPageCapacity(newLeaf.getPageCapacity()-border);
-        System.out.println("Knife cuts");
-        return newLeaf;
-    }
 
+    public Leaf cut(Leaf leaf, double koef) {
+        System.out.println("Cut by knife:");
+        int border = (int) Math.round(leaf.getFirstPage().getPageCapacity() * (1 - koef));
+        try {
+            Leaf newLeaf = leaf.clone();
+            if (newLeaf.equals(leaf)) {
+                throw new SameObjectsException("Clonning has done incorrectly. Two leaves are equals!");
+            }
+            leaf.delete(border, leaf.getFirstPage().getPageCapacity());
+            leaf.setPageCapacity(border);
+            newLeaf.delete(0, border);
+            newLeaf.setPageCapacity(newLeaf.getPageCapacity() - border);
+            return newLeaf;
+        } catch (CloneNotSupportedException | SameObjectsException ex) {
+            System.err.println("Couldn't clone object");
+            System.err.println("Leaf hadn't cut");
+            ex.getMessage();
+        }
+        return leaf;
+    }
 }

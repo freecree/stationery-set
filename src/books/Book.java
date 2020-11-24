@@ -6,7 +6,6 @@ public class Book
 {
     private int amountLeaves;
     private BookType bookType;
-    //ArrayList<Page> pages = new ArrayList<Page>();
     ArrayList<Leaf> leaves = new ArrayList<Leaf>();
     public Book(int amountLeaves, BookType bType, PageType pType, int pageCapacity) {
         this.amountLeaves = amountLeaves;
@@ -19,16 +18,11 @@ public class Book
         System.out.println("Book opened on " + pageNum );
     }
     public Leaf.Page getPage(int n) {
-        //try {
             if(n%2 != 0) {
                 return leaves.get((n-1)/2).getFirstPage();
             } else {
                 return leaves.get((n-1)/2).getSecondPage();
             }
-//        } catch (Exception ex) {
-//            return new Page();
-//        }
-
     }
     public void showRecords() {
         for (int i = 0; i < amountLeaves; i++) {
@@ -37,15 +31,3 @@ public class Book
         }
     }
 }
-//    public class BookMark {
-//        int currentPageNumber;
-//        public BookMark() {
-//            currentPageNumber = 0;
-//        }
-//        void put(int n) {
-//            currentPageNumber = n;
-//        }
-//        int open() {
-//            return currentPageNumber;
-//        }
-//    }

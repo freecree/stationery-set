@@ -15,19 +15,16 @@ abstract class MarkInstrument {
         this.length = length;
         this.canWipe = canWipe;
     }
-//    public void mark() {
-//        System.out.println("Marking");
-//    }
     public void write(Leaf.Page page, String content) {
-        Leaf.Page.Content tempcont = new page.Content(canWipe, ContentTypes.TEXT, content);
+        Leaf.Page.Content tempcont =  page.new Content(canWipe, ContentTypes.TEXT, content);
         page.addContent(tempcont);
     }
     public void paint(Leaf.Page page, String content) {
-        Leaf.Page.Content tempcont = new Leaf.Page.Content(canWipe, ContentTypes.PICTURE, content);
+        Leaf.Page.Content tempcont =  page.new Content(canWipe, ContentTypes.PICTURE, content);
         page.addContent(tempcont);
     }
     public void draw(Leaf.Page page, Figures content) {
-        Leaf.Page.Content tempcont = new Leaf.Page.Content(canWipe, ContentTypes.FIGURE, content.toString());
+        Leaf.Page.Content tempcont =  page.new Content(canWipe, ContentTypes.FIGURE, content.toString());
         page.addContent(tempcont);
     }
     void show() {

@@ -35,9 +35,9 @@ public class Leaf implements Cloneable {
     }
 
     public void showRecords() {
-        System.out.println("Page 1:");
+        System.out.println(" Page 1:");
         page1.showRecords();
-        System.out.println("Page 2:");
+        System.out.println(" Page 2:");
         page2.showRecords();
     }
 
@@ -92,21 +92,13 @@ public class Leaf implements Cloneable {
 
         }
 
-        public void delete(int id) {
-            records.remove(id);
+        public void deleteWipe(int id) {
+            if(records.get(id).canWipe) {
+                records.remove(id);
+            }
+
         }
-//        void delete(int a1, int a2) {
-//            //Iterator<Content> iter = records.iterator();
-//            System.out.println("In delete(): "+ a1+" "+a2+" "+records.size());
-//            if (a1 <= records.size() && records.size() < a2) {
-//                a2 = records.size();
-//            }
-//            if (a1 <= a2 && a2 <= records.size()) {
-//                for (int i = a1; i < a2; i++) {
-//                    records.remove(a1);
-//                }
-//            }
-//        }
+
         void delete(int a1, int a2) {
             try {
                 if (a1 > a2 || a1 < 0) {
@@ -136,7 +128,7 @@ public class Leaf implements Cloneable {
 
         void showRecords() {
             for (int i = 0; i < records.size(); i++) {
-                System.out.println("Content: " + i);
+                System.out.println("  Content: " + (i+1));
                 records.get(i).show();
             }
         }
@@ -170,12 +162,14 @@ public class Leaf implements Cloneable {
             }
 
             void show() {
+                System.out.print("    ");
                 System.out.println(contentType);
                 if (canWipe) {
-                    System.out.println("Wiped");
+                    System.out.println("    Wiped");
                 } else {
-                    System.out.println("Not wiped");
+                    System.out.println("    Not wiped");
                 }
+                System.out.print("    ");
                 System.out.println(content);
             }
             public Content clone() throws CloneNotSupportedException {

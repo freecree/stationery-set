@@ -40,7 +40,7 @@ public class Protractor extends Ruler {
         tempAngle = angle;
     }
 
-    public void checkFigureMeasure(Figures figure) throws MeasureException {
+    private void checkFigureMeasure(Figures figure) throws MeasureException {
         int sum = 0;
         for( int num : tempFigureAngles) {
             sum = sum + num;

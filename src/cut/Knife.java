@@ -11,7 +11,7 @@ public class Knife implements CuttingTool {
         try {
             Leaf newLeaf = leaf.clone();
             if (newLeaf.equals(leaf)) {
-                throw new SameObjectsException("Clonning has done incorrectly. Two leaves are equals!");
+                throw new SameObjectsException("Cloning has done incorrectly. Two leaves are equals!");
             }
             leaf.delete(border, leaf.getFirstPage().getPageCapacity());
             leaf.setPageCapacity(border);

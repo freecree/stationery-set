@@ -9,7 +9,7 @@ abstract class MarkInstrument {
     private String color;
     private String material;
     int length;
-    public MarkInstrument(String color, String material, int length, boolean canWipe) {
+    MarkInstrument(String color, String material, int length, boolean canWipe) {
         this.color = color;
         this.material = material;
         this.length = length;

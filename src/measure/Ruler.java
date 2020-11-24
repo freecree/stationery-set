@@ -29,10 +29,10 @@ public class Ruler {
         return Objects.hash(length, material, tempLength);
     }
 
-    public int getLength() {
+    int getLength() {
         return length;
     }
-    public String getMaterial() {
+    String getMaterial() {
         return material;
     }
     public void measure(int length) {

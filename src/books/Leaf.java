@@ -1,6 +1,8 @@
 package books;
 
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Objects;
 
 public class Leaf implements Cloneable {
     private int pageCapacity;
@@ -71,15 +73,28 @@ public class Leaf implements Cloneable {
         public void setPageCapacity(int pageCapacity) {
             Leaf.this.pageCapacity = pageCapacity;
         }
-
+        public boolean findSameContent(Content content) {
+            Iterator<Content> recordsIterator = records.iterator();
+            while (recordsIterator.hasNext()) {
+                if(content.equals(recordsIterator.next())) {
+                    System.out.println("Equal record was found! Record hasn't been written.");
+                    return true;
+                }
+            }
+            return false;
+        }
         public void addContent(Content content) {
-            records.add(content);
+            if (records.size() < pageCapacity) {
+                records.add(content);
+            } else {
+                System.out.println("There is no place on this page");
+            }
+
         }
 
         public void delete(int id) {
             records.remove(id);
         }
-
 //        void delete(int a1, int a2) {
 //            //Iterator<Content> iter = records.iterator();
 //            System.out.println("In delete(): "+ a1+" "+a2+" "+records.size());
@@ -119,7 +134,7 @@ public class Leaf implements Cloneable {
             }
         }
 
-        public void showRecords() {
+        void showRecords() {
             for (int i = 0; i < records.size(); i++) {
                 System.out.println("Content: " + i);
                 records.get(i).show();
@@ -162,10 +177,24 @@ public class Leaf implements Cloneable {
                     System.out.println("Not wiped");
                 }
                 System.out.println(content);
-
             }
             public Content clone() throws CloneNotSupportedException {
                 return (Content) super.clone();
+            }
+
+            @Override
+            public boolean equals(Object o) {
+                if (this == o) return true;
+                if (o == null || getClass() != o.getClass()) return false;
+                Content content1 = (Content) o;
+                return canWipe == content1.canWipe &&
+                        contentType == content1.contentType &&
+                        Objects.equals(content, content1.content);
+            }
+
+            @Override
+            public int hashCode() {
+                return Objects.hash(canWipe, contentType, content);
             }
         }
 

@@ -5,9 +5,9 @@ import books.Leaf;
 import figures.Figures;
 
 abstract class MarkInstrument {
-    boolean canWipe;
-    String color;
-    String material;
+    private boolean canWipe;
+    private String color;
+    private String material;
     int length;
     public MarkInstrument(String color, String material, int length, boolean canWipe) {
         this.color = color;
@@ -17,15 +17,22 @@ abstract class MarkInstrument {
     }
     public void write(Leaf.Page page, String content) {
         Leaf.Page.Content tempcont =  page.new Content(canWipe, ContentTypes.TEXT, content);
-        page.addContent(tempcont);
+        if(!page.findSameContent(tempcont)) {
+            page.addContent(tempcont);
+        }
+
     }
     public void paint(Leaf.Page page, String content) {
         Leaf.Page.Content tempcont =  page.new Content(canWipe, ContentTypes.PICTURE, content);
-        page.addContent(tempcont);
+        if(!page.findSameContent(tempcont)) {
+            page.addContent(tempcont);
+        }
     }
     public void draw(Leaf.Page page, Figures content) {
         Leaf.Page.Content tempcont =  page.new Content(canWipe, ContentTypes.FIGURE, content.toString());
-        page.addContent(tempcont);
+        if(!page.findSameContent(tempcont)) {
+            page.addContent(tempcont);
+        }
     }
     void show() {
         System.out.println("Color: " + color);

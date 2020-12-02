@@ -1,5 +1,7 @@
 package measure;
 
+import books.MyAssertions;
+import exceptions.MeasureException;
 import mark.InstrMaterials;
 import figures.Figures;
 import org.junit.Before;
@@ -25,25 +27,30 @@ public class ProtractorTest {
         int[] expected2 = protractor.getTempFigureAngles();
         int[] actual2 = {90, 110, 80, 100, 160};
 
-
         assertArrayEquals(expected1, actual1);
         assertArrayEquals(expected2, actual2);
-
-
     }
     @Test
     public void getTempFigureAngles_NO_NULL() {
         int[] expected = protractor.getTempFigureAngles();
         assertNotNull(expected);
-
     }
 
-
-        @Test
-    public void testMeasure() {
+    @Test(expected = MeasureException.class)
+    public void checkFigureMeasure_IncorrectMeasuring_ThrowMeasureException() throws MeasureException {
+        //GIVEN
+        int[] incorrectArr = {31, 60, 90};
+        protractor.setTempFigureAngles(incorrectArr);
+        //WHEN
+        protractor.checkFigureMeasure(Figures.TRIANGLE);
     }
 
     @Test
-    public void checkFigureMeasure() {
+    public void checkFigureMeasure_IncorrectMeasuring_NotThrowException() throws MeasureException {
+        //GIVEN
+        int[] correctArr = {30, 60, 90};
+        protractor.setTempFigureAngles(correctArr);
+        //WHEN
+        protractor.checkFigureMeasure(Figures.TRIANGLE);
     }
 }

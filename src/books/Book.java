@@ -14,9 +14,6 @@ public class Book
             leaves.add(new Leaf(pType, pageCapacity));
         }
     }
-    public void open(int pageNum) {
-        System.out.println("Book opened on " + pageNum );
-    }
     public Leaf.Page getPage(int n) {
         if(n%2 != 0) {
             return leaves.get((n-1)/2).getFirstPage();

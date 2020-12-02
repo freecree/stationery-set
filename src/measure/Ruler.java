@@ -12,23 +12,6 @@ public class Ruler {
         this.material = material;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        System.out.println("in hash equals()");
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Ruler ruler = (Ruler) o;
-        return length == ruler.length &&
-                tempLength == ruler.tempLength &&
-                Objects.equals(material, ruler.material);
-    }
-
-    @Override
-    public int hashCode() {
-        System.out.println("in hash code()");
-        return Objects.hash(length, material, tempLength);
-    }
-
     int getLength() {
         return length;
     }

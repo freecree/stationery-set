@@ -16,22 +16,22 @@ abstract class MarkInstrument {
         this.canWipe = canWipe;
     }
     public void write(Leaf.Page page, String content) {
-        Leaf.Page.Content tempcont =  page.new Content(canWipe, ContentTypes.TEXT, content);
-        if(!page.findSameContent(tempcont)) {
-            page.addContent(tempcont);
+        Leaf.Page.Content tempCont =  page.new Content(canWipe, ContentTypes.TEXT, content);
+        if(!page.findSameContent(tempCont)) {
+            page.addContent(tempCont);
         }
 
     }
     public void paint(Leaf.Page page, String content) {
-        Leaf.Page.Content tempcont =  page.new Content(canWipe, ContentTypes.PICTURE, content);
-        if(!page.findSameContent(tempcont)) {
-            page.addContent(tempcont);
+        Leaf.Page.Content tempCont =  page.new Content(canWipe, ContentTypes.PICTURE, content);
+        if(!page.findSameContent(tempCont)) {
+            page.addContent(tempCont);
         }
     }
     public void draw(Leaf.Page page, Figures content) {
-        Leaf.Page.Content tempcont =  page.new Content(canWipe, ContentTypes.FIGURE, content.toString());
-        if(!page.findSameContent(tempcont)) {
-            page.addContent(tempcont);
+        Leaf.Page.Content tempCont =  page.new Content(canWipe, ContentTypes.FIGURE, content.toString());
+        if(!page.findSameContent(tempCont)) {
+            page.addContent(tempCont);
         }
     }
     void show() {

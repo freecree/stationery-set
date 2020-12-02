@@ -89,14 +89,18 @@ public class Leaf implements Cloneable {
             } else {
                 System.out.println("There is no place on this page");
             }
-
+        }
+        public ArrayList<Content> getContent() {
+            return records;
+        }
+        public int getRecordsSize() {
+            return records.size();
         }
 
         public void deleteWipe(int id) {
             if(records.get(id).canWipe) {
                 records.remove(id);
             }
-
         }
 
         void delete(int a1, int a2) {

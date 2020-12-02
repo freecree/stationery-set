@@ -17,6 +17,7 @@ public class Protractor extends Ruler {
     public int [] getTempFigureAngles() {
         return tempFigureAngles;
     }
+    public void setTempFigureAngles(int [] arr) {tempFigureAngles = arr;}
         public void measure(Figures figure) {
         String[] arr = figure.toString().split("\n");
         int n = Integer.parseInt(arr[1]);
@@ -40,7 +41,7 @@ public class Protractor extends Ruler {
         tempAngle = angle;
     }
 
-    private void checkFigureMeasure(Figures figure) throws MeasureException {
+    void checkFigureMeasure(Figures figure) throws MeasureException {
         int sum = 0;
         for( int num : tempFigureAngles) {
             sum = sum + num;

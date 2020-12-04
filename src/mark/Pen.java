@@ -10,6 +10,10 @@ public class Pen extends MarkInstrument {
         this.distance = distance;
     }
 
+    public double getDistance() {
+        return distance;
+    }
+
     public void show() {
         System.out.println("Pen");
         super.show();
@@ -17,4 +21,6 @@ public class Pen extends MarkInstrument {
         System.out.println("line_thickness: " + line_thickness);
         System.out.println("Distance: " + distance);
     }
+
+
 }

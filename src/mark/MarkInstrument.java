@@ -34,6 +34,15 @@ abstract class MarkInstrument {
             page.addContent(tempCont);
         }
     }
+
+    public String getMaterial() {
+        return material;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
     void show() {
         System.out.println("Color: " + color);
         System.out.println("Material: " + material);

@@ -7,13 +7,12 @@ import mark.*;
 import measure.Protractor;
 import measure.Ruler;
 
-import java.io.PrintStream;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-import java.util.function.Function;
+import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import static java.util.Collections.frequency;
+import static java.util.Optional.ofNullable;
 
 public class Main {
 
@@ -66,50 +65,77 @@ public class Main {
         Pen pen4 = new Pen(PenColors.RED.toString(), InstrMaterials.PLASTIC.toString(), 150, false, 0.7, 60.7);
         List pens = List.of(pen1, pen2, pen3, pen4);
 
-        double generalDist = GetGeneralDistByMaterial(pens, "lol"); //"PLASTIC"
+        double generalDist = GetGeneralDistByMaterial(pens, "PLASTIC"); //"PLASTIC"
         System.out.println(generalDist);
-        double maxDist = GetTheBiggestDistByMaterial(pens, "PLASTIC"); //"PLASTIC"
-        System.out.println(maxDist);
-        double averageDist = GetAverageDistByMaterial(pens, "PLASTIC"); //"PLASTIC"
-        System.out.println(averageDist);
+
+//        double maxDist = GetTheBiggestDistByMaterial(pens, "PLASTIC"); //"PLASTIC"
+//        System.out.println(maxDist);
+//        double averageDist = GetAverageDistByMaterial(pens, "PLASTIC"); //"PLASTIC"
+        //System.out.println(averageDist);
         ToMap(pens, "PLASTIC", "RED");
 
-
+        ArrayList<String> list = new ArrayList<>();
+        list.add("test");
+        list.add("test");
+        list.add("hello");
+        list.add("test");
+        String word = list.stream()
+                .collect(Collectors.groupingBy(w -> w, Collectors.counting()))
+                .entrySet()
+                .stream()
+                .max(Comparator.comparing(Map.Entry::getValue))
+                .get()
+                .getKey();
+        System.out.println(word);
     }
     public static double GetGeneralDistByMaterial(Collection<Pen> pens, String material) {
-        if( material == null)  {
-            return 0.0;
-        }
-        return pens.stream().
-                filter(s-> s.getMaterial() != null).
-                filter(s -> material.equals(s.getMaterial()))
-                .mapToDouble(Pen::getDistance).
-                        sum();
-//        return material. (pens.stream().
-//                filter(s-> s.getMaterial() != null).
-//                map(s->material.isEmpty()
-//
-//                ).
-//                filter(s -> material.equals(s.getMaterial()))
-//                .mapToDouble(Pen::getDistance).
-//                        sum();
+        return ofNullable(pens)
+                .map(s->pens.stream()
+                        .filter(p-> p.getMaterial() != null)
+                        .filter(p -> p.getMaterial().equals(material))
+                        .mapToDouble(Pen::getDistance)
+                        .sum()
+                ).orElse(0.0);
     }
-    public static double GetTheBiggestDistByMaterial(Collection<Pen> pens, String material) {
-        if( material == null)  {
-            return 0.0;
-        }
-        return pens.stream().
-                mapToDouble(Pen::getDistance).max().orElse(0.0);
+    public static Optional <Pen> GetTheBiggestDistPen(Collection<Pen> pens) {
+
+        return ofNullable(pens)
+                .map(s->pens.stream()
+                        .max(Comparator.comparing(Pen::getDistance))
+                ).orElseThrow(NoPensException::new);
     }
-    public static double GetAverageDistByMaterial(Collection<Pen> pens, String material) {
-        if( material == null)  {
-            return 0.0;
-        }
-        return pens.stream().
-                mapToDouble(Pen::getDistance).average().orElse(0.0);
+
+    public static double GetAverageDist(Collection<Pen> pens) {
+        return ofNullable(pens)
+                .map(s->pens.stream()
+                        .mapToDouble(Pen::getDistance)
+                        .average().orElse(0.0)
+                ).orElse(0.0);
     }
+    //5
+
+    public static String concat(Leaf leaf) {
+        List<Leaf.Page.Content> newList = Stream.concat(leaf.getFirstPage().getContent().stream(), leaf.getSecondPage().getContent().stream())
+                .collect(Collectors.toList());
+        return newList.stream()
+                .collect(Collectors.groupingBy(Leaf.Page.Content::getContent, Collectors.counting()))
+                .entrySet()
+                .stream()
+                .max(Comparator.comparing(Map.Entry::getValue))
+                .get()
+                .getKey();
+
+    }
+
     public static void ToMap(Collection<Pen> pens, String material, String color) {
-        //Map<Boolean, List<Pen>> partitioned =
+        Map<Boolean, List<Pen>> partitioned = pens.stream().collect(
+                        Collectors.partitioningBy(m -> m.getMaterial().equals(material) && m.getColor().equals(color))
+                );
+        for(Map.Entry<Boolean, List<Pen>> pair : partitioned.entrySet())
+        {
+            System.out.println(pair);
+        }
+
 
 //        List<Pen> truePens = pens.stream().
 //                filter(s -> material.equals(s.getMaterial())&& color.equals(s.getColor())).

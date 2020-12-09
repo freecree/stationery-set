@@ -43,6 +43,10 @@ abstract class MarkInstrument {
         return color;
     }
 
+    public boolean isCanWipe() {
+        return canWipe;
+    }
+
     void show() {
         System.out.println("Color: " + color);
         System.out.println("Material: " + material);

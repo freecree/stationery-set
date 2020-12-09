@@ -14,6 +14,18 @@ public class Pen extends MarkInstrument {
         return distance;
     }
 
+    @Override
+    public String toString() {
+        return "Pen{" +
+                "line_thickness=" + line_thickness +
+                ", distance=" + distance +
+                ", length=" + length +
+                ", isCanWipe=" + isCanWipe() +
+                ", color=" + getColor() +
+                ", material=" + getMaterial() +
+                '}';
+    }
+
     public void show() {
         System.out.println("Pen");
         super.show();

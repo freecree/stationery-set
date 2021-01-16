@@ -1,0 +1,12 @@
+books\ContentTest.class
+cut\ScissorsIT.class
+mark\MarkInstrumentTest.class
+cut\KnifeTest.class
+measure\ProtractorTest.class
+books\LeafTest.class
+cut\KnifeIT.class
+eraser\EraserTest.class
+books\PageTest.class
+books\BookTest.class
+cut\ScissorsTest.class
+figures\FiguresTest.class

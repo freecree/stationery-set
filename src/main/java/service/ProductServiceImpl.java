@@ -4,6 +4,7 @@ import exceptions.ProductNotFountException;
 import models.Product;
 import repository.ProductRepository;
 
+import java.util.Collection;
 import java.util.List;
 
 import static java.util.Optional.of;
@@ -22,19 +23,37 @@ public class ProductServiceImpl implements ProductService {
             .map(s -> getProducts().stream()
                 .filter(prod -> prod.getName().equals(s))
                 .findAny()
-                .get()
+                .orElseThrow(ProductNotFountException::new)
             ).orElseThrow(ProductNotFountException::new);
-
-
     }
 
     @Override
-    public void orderProduct(long id) {
-
+    public Product getProductById(int id) {
+        return of(id)
+                .map(s -> getProducts().stream()
+                        .filter(prod -> prod.getId() == s)
+                        .findAny()
+                        .orElseThrow(ProductNotFountException::new)
+                ).orElseThrow(ProductNotFountException::new);
     }
 
     @Override
-    public List<Product> getProducts(){
+    public Product saveProduct(Product product) {
+        return productRepository.save(product);
+    }
+
+    @Override
+    public Product updateProduct(Product product) {
+        return productRepository.update(product);
+    }
+
+    @Override
+    public void deleteProduct(int id) {
+        productRepository.delete(id);
+    }
+
+    @Override
+    public Collection<Product> getProducts(){
         return productRepository.getAllProducts();
     }
 

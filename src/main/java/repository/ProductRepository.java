@@ -12,7 +12,7 @@ public class ProductRepository {
         return Collections.emptyList();
     }
 
-    public Product save(Product product) {
+    public Product create(Product product) {
         throw new NotImplementedException();
     }
 

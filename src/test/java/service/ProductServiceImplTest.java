@@ -99,8 +99,8 @@ public class ProductServiceImplTest {
     @Test()
     @DisplayName("Saving product")
     public void saveProduct() {
-        productService.saveProduct(product);
-        Mockito.verify(productRepository, Mockito.times(1)).save(product);
+        productService.createProduct(product);
+        Mockito.verify(productRepository, Mockito.times(1)).create(product);
     }
 
     @Test()

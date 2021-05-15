@@ -1,11 +1,10 @@
 package repository;
 
-import exception.NotImplementedException;
+import exceptions.NotImplementedException;
 import models.Product;
 
 import java.util.Collection;
 import java.util.Collections;
-import java.util.List;
 
 public class ProductRepository {
     public Collection<Product> getAllProducts() {

@@ -1,9 +1,18 @@
 package models;
 
 public class Order {
+    private int id;
     private User customer;
     private int quantity;
     private Product product;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public User getCustomer() {
         return customer;
@@ -28,4 +37,5 @@ public class Order {
     public void setProduct(Product product) {
         this.product = product;
     }
+
 }

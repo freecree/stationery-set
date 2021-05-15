@@ -11,8 +11,8 @@ public class OrderController {
     public List<Order> getOrders() {
         return orderService.getOrders();
     }
-    public Order getOrderByUserId(int id) {
-        return orderService.getOrderByUserId(id);
+    public Order getOrderByCustomerId(int id) {
+        return orderService.getOrderByCustomerId(id);
     }
     public Order getOrderByProductId(int id) {
         return orderService.getOrderByProductId(id);

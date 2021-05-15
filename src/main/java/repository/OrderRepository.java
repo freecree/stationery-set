@@ -8,7 +8,7 @@ import java.util.List;
 
 public class OrderRepository {
 
-    public List<Order> getAllProducts() {
+    public List<Order> getAllOrders() {
         return Collections.emptyList();
     }
     public void save(Order order) {

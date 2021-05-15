@@ -17,9 +17,9 @@ public class OrderServiceImpl implements OrderService {
     }
 
     public List<Order> getOrders() {
-        return orderRepository.getAllProducts();
+        return orderRepository.getAllOrders();
     }
-    public Order getOrderByUserId(int id) {
+    public Order getOrderByCustomerId(int id) {
         return of(id)
             .map(s -> getOrders().stream()
                     .filter(order -> order.getId() == s)

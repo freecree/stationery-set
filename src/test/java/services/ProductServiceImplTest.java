@@ -1,4 +1,4 @@
-package service;
+package services;
 
 import exceptions.ProductNotFountException;
 import models.Product;
@@ -16,7 +16,6 @@ import repository.ProductRepository;
 
 import java.util.Collection;
 import java.util.Collections;
-import java.util.List;
 
 @ExtendWith(MockitoExtension.class)
 public class ProductServiceImplTest {

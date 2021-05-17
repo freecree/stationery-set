@@ -1,18 +1,22 @@
-package service;
+package services;
 
 import exceptions.ProductNotFountException;
 import models.Product;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import repository.ProductRepository;
 
 import java.util.Collection;
-import java.util.List;
 
 import static java.util.Optional.of;
 
+@Service
 public class ProductServiceImpl implements ProductService {
+
 
     ProductRepository productRepository;
 
+    @Autowired
     public ProductServiceImpl(ProductRepository productRepository) {
         this.productRepository = productRepository;
     }

@@ -1,12 +1,20 @@
 package controllers;
 
 import models.Order;
-import service.OrderService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import services.OrderService;
 
 import java.util.List;
 
+@Controller
 public class OrderController {
     private OrderService orderService;
+
+    @Autowired
+    public OrderController(OrderService orderService) {
+        this.orderService = orderService;
+    }
 
     public List<Order> getOrders() {
         return orderService.getOrders();

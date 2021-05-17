@@ -1,17 +1,21 @@
-package service;
+package services;
 
 import exceptions.NotImplementedException;
 import exceptions.OrderNotFountException;
 import models.Order;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import repository.OrderRepository;
 
 import java.util.List;
 
 import static java.util.Optional.of;
 
+@Service
 public class OrderServiceImpl implements OrderService {
     private final OrderRepository orderRepository;
 
+    @Autowired
     public OrderServiceImpl(OrderRepository orderRepository) {
         this.orderRepository = orderRepository;
     }

@@ -1,4 +1,4 @@
-package service;
+package services;
 
 import models.Order;
 import org.junit.jupiter.api.BeforeEach;
@@ -10,8 +10,6 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import repository.OrderRepository;
-
-import java.util.List;
 
 import static java.util.Collections.singletonList;
 

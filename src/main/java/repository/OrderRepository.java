@@ -2,10 +2,12 @@ package repository;
 
 import exceptions.NotImplementedException;
 import models.Order;
+import org.springframework.stereotype.Repository;
 
 import java.util.Collections;
 import java.util.List;
 
+@Repository
 public class OrderRepository {
 
     public List<Order> getAllOrders() {

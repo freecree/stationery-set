@@ -1,13 +1,21 @@
 package controllers;
 
 import models.Product;
-import service.ProductService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import services.ProductService;
+import services.ProductServiceImpl;
 
 import java.util.Collection;
 
+@Controller
 public class ProductController {
+
     private ProductService productService;
 
+    //public ProductController() {}
+
+    @Autowired
     public ProductController(ProductService productService) {
         this.productService = productService;
     }

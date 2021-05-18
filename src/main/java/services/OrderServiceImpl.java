@@ -14,10 +14,12 @@ import static java.util.Optional.of;
 @Service
 public class OrderServiceImpl implements OrderService {
     private final OrderRepository orderRepository;
+    private final ProductService productService;
 
     @Autowired
-    public OrderServiceImpl(OrderRepository orderRepository) {
+    public OrderServiceImpl(OrderRepository orderRepository, ProductService productService) {
         this.orderRepository = orderRepository;
+        this.productService = productService;
     }
 
     public List<Order> getOrders() {
@@ -34,7 +36,8 @@ public class OrderServiceImpl implements OrderService {
     public Order getOrderByProductId(int id) {
         return of(id)
                 .map(s -> getOrders().stream()
-                        .filter(order -> order.getId() == s)
+                        //.filter(order -> productService.getProductById(order.getId()).getId() == s)
+                        .filter(order -> order.getProduct().getId() == s)
                         .findAny()
                         .orElseThrow(OrderNotFountException::new)
                 ).orElseThrow(OrderNotFountException::new);

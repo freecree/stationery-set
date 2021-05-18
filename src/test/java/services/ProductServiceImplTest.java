@@ -46,7 +46,7 @@ public class ProductServiceImplTest {
         final Product actual = productService.getProductByName("prod1");
         //THEN
         Mockito.verify(productRepository, Mockito.times(1)).getAllProducts();
-        Assert.assertEquals(actual, product1);
+        Assertions.assertEquals(actual, product1);
     }
 
     @Test()
@@ -77,7 +77,7 @@ public class ProductServiceImplTest {
         final Product actual = productService.getProductById(1);
         //THEN
         Mockito.verify(productRepository, Mockito.times(1)).getAllProducts();
-        Assert.assertEquals(actual, product1);
+        Assertions.assertEquals(actual, product1);
     }
 
     @Test()
@@ -115,7 +115,4 @@ public class ProductServiceImplTest {
         productService.deleteProduct(2);
         Mockito.verify(productRepository, Mockito.times(1)).delete(2);
     }
-
-
-
 }

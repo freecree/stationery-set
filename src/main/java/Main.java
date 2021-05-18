@@ -10,7 +10,7 @@ public class Main {
         ProductController productController = context.getBean("productController", ProductController.class);
         OrderController orderController = context.getBean("orderController", OrderController.class);
         System.out.println("products: "+productController.getProducts());
-        //productController.createProduct(new Product());
+        productController.createProduct(new Product());
         //System.out.println(orderController.getOrderByCustomerId(1));
         System.out.println("orders: "+orderController.getOrders());
 

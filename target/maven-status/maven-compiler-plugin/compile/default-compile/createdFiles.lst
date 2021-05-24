@@ -7,12 +7,13 @@ models\PropertyValue.class
 models\User.class
 models\Category.class
 repository\OrderRepository.class
-service\ProductServiceImpl.class
+config\SpringConfig.class
+services\OrderServiceImpl.class
+services\ProductServiceImpl.class
 Main.class
+services\ProductService.class
 models\PropertyName.class
-service\OrderServiceImpl.class
 models\Product.class
-service\OrderService.class
-service\ProductService.class
+services\OrderService.class
 controllers\ProductController.class
 models\Order.class

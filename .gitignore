@@ -1,4 +1,1 @@
-# Project exclude paths
-/out/
-.idea
-/target
+"target" 

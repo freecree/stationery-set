@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Controller;
 import repository.UserRepository;
 
-//@Controller
+@Controller
 //@EnableJpaRepositories("repository")
 public class UserController {
 

@@ -111,13 +111,11 @@
             <version>4.0.1</version>
             <scope>provided</scope>
         </dependency>
-
-
-        <!--        <dependency>-->
-<!--            <groupId>org.springframework.boot</groupId>-->
-<!--            <artifactId>spring-boot-starter</artifactId>-->
-<!--            <version>${spring.boot.version}</version>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+            <version>${spring.boot.version}</version>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -146,19 +144,6 @@
 <!--            <version>1.4.200</version>-->
 <!--            <scope>runtime</scope>-->
 <!--        </dependency>-->
-
-
-
-
-
-
-        <!--        <dependency>-->
-<!--            <groupId>mysql</groupId>-->
-<!--            <artifactId>mysql-connector-java</artifactId>-->
-<!--            <version>8.0.25</version>-->
-<!--            <scope>runtime</scope>-->
-<!--        </dependency>-->
-
 
     </dependencies>
 

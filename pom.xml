@@ -7,7 +7,7 @@
     <groupId>groupId</groupId>
     <artifactId>tpl1</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>war</packaging>
+<!--    <packaging>war</packaging>-->
 
     <properties>
         <maven.compiler.target>11</maven.compiler.target>
@@ -132,18 +132,18 @@
             <version>5.4.31.Final</version>
             <scope>runtime</scope>
         </dependency>
-        <dependency>
-            <groupId>org.apache.tomcat</groupId>
-            <artifactId>tomcat-dbcp</artifactId>
-            <version>10.0.6</version>
-        </dependency>
-
-        <!--        <dependency>-->
-<!--            <groupId>com.h2database</groupId>-->
-<!--            <artifactId>h2</artifactId>-->
-<!--            <version>1.4.200</version>-->
-<!--            <scope>runtime</scope>-->
+<!--        <dependency>-->
+<!--            <groupId>org.apache.tomcat</groupId>-->
+<!--            <artifactId>tomcat-dbcp</artifactId>-->
+<!--            <version>10.0.6</version>-->
 <!--        </dependency>-->
+
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>1.4.200</version>
+            <scope>runtime</scope>
+        </dependency>
 
     </dependencies>
 

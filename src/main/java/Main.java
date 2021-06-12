@@ -1,7 +1,9 @@
 import config.SpringConfig;
 import controllers.OrderController;
 import controllers.ProductController;
+import controllers.UserController;
 import models.Product;
+import models.User;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.core.env.ConfigurableEnvironment;
@@ -21,7 +23,11 @@ public class Main {
         //System.out.println(orderController.getOrderByCustomerId(1));
         System.out.println("orders: "+orderController.getOrders());
         final ConfigurableEnvironment environment = context.getEnvironment();
-
+        UserController userController = context.getBean("userController", UserController.class);
+        User user = new User();
+        user.setLogin("Barabos");
+        userController.createUser(user);
+        System.out.println(userController.getUsers());
 //        String url = "jdbc:mysql://localhost:3306/stationary-set";
 //        String username = "root";
 //        String password = "111111";

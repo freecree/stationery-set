@@ -1,5 +1,6 @@
 package controllers;
 
+import lombok.RequiredArgsConstructor;
 import models.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,16 +10,10 @@ import services.ProductServiceImpl;
 import java.util.Collection;
 
 @Controller
+@RequiredArgsConstructor
 public class ProductController {
 
-    private ProductService productService;
-
-    //public ProductController() {}
-
-    @Autowired
-    public ProductController(ProductService productService) {
-        this.productService = productService;
-    }
+    private final ProductService productService;
 
     public Collection<Product> getProducts() {
         return this.productService.getProducts();

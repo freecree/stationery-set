@@ -1,13 +1,12 @@
 package models;
 
+import lombok.*;
+
+@NoArgsConstructor
+@Setter
+@Getter
+@EqualsAndHashCode
+@ToString()
 public class PropertyName {
     private String name;
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 }

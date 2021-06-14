@@ -2,6 +2,7 @@ package services;
 
 import exceptions.NotImplementedException;
 import exceptions.OrderNotFountException;
+import lombok.RequiredArgsConstructor;
 import models.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,13 +13,9 @@ import java.util.List;
 import static java.util.Optional.of;
 
 @Service
+@RequiredArgsConstructor
 public class OrderServiceImpl implements OrderService {
     private final OrderRepository orderRepository;
-
-    @Autowired
-    public OrderServiceImpl(OrderRepository orderRepository) {
-        this.orderRepository = orderRepository;
-    }
 
     public List<Order> getOrders() {
         return orderRepository.getAllOrders();

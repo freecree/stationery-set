@@ -1,5 +1,6 @@
 package controllers;
 
+import lombok.RequiredArgsConstructor;
 import models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
@@ -9,15 +10,10 @@ import repository.UserRepository;
 import java.util.List;
 
 @Controller
-//@EnableJpaRepositories("repository")
+@RequiredArgsConstructor
 public class UserController {
 
-    private UserRepository userRepository;
-
-    @Autowired
-    public UserController(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
+    private final UserRepository userRepository;
 
     public List<User> getUsers() {
         return userRepository.findAll();

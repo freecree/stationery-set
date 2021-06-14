@@ -1,6 +1,7 @@
 package services;
 
 import exceptions.ProductNotFountException;
+import lombok.RequiredArgsConstructor;
 import models.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,15 +12,10 @@ import java.util.Collection;
 import static java.util.Optional.of;
 
 @Service
+@RequiredArgsConstructor
 public class ProductServiceImpl implements ProductService {
 
-
-    ProductRepository productRepository;
-
-    @Autowired
-    public ProductServiceImpl(ProductRepository productRepository) {
-        this.productRepository = productRepository;
-    }
+    private final ProductRepository productRepository;
 
     @Override
     public Product getProductByName(String prodName) {

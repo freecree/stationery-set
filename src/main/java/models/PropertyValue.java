@@ -12,6 +12,7 @@ import javax.persistence.Table;
 @EqualsAndHashCode
 @ToString()
 public class PropertyValue {
+
     private String value;
 
 }

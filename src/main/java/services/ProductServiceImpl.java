@@ -7,11 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import repository.ProductRepository;
 
+import javax.transaction.Transactional;
 import java.util.Collection;
 
 import static java.util.Optional.of;
 
 @Service
+@Transactional
 @RequiredArgsConstructor
 public class ProductServiceImpl implements ProductService {
 
@@ -39,22 +41,22 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Product createProduct(Product product) {
-        return productRepository.create(product);
+        return productRepository.save(product);
     }
 
     @Override
     public Product updateProduct(Product product) {
-        return productRepository.update(product);
+        return productRepository.save(product);
     }
 
     @Override
-    public void deleteProduct(int id) {
-        productRepository.delete(id);
+    public void deleteProduct(Product product) {
+        productRepository.delete(product);
     }
 
     @Override
     public Collection<Product> getProducts(){
-        return productRepository.getAllProducts();
+        return productRepository.findAll();
     }
 
 }

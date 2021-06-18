@@ -33,86 +33,86 @@ public class ProductServiceImplTest {
         product = new Product();
     }
 
-    @Test
-    @DisplayName("Searching for valid product by name")
-    public void getProductByNameValid() {
-        Product product1 = new Product();
-        product1.setName("prod1");
-
-        final Collection<Product> products = Collections.singletonList(
-                product1);
-        Mockito.doReturn(products).when(productRepository).getAllProducts();
-        //WHEN
-        final Product actual = productService.getProductByName("prod1");
-        //THEN
-        Mockito.verify(productRepository, Mockito.times(1)).getAllProducts();
-        Assertions.assertEquals(actual, product1);
-    }
-
-    @Test()
-    @DisplayName("Searching for invalid product by name")
-    public void getProductByNameInvalid() {
-        Product product1 = new Product();
-        product1.setName("prod2");
-
-        final Collection<Product> products = Collections.singletonList(
-                product1);
-        Mockito.doReturn(products).when(productRepository).getAllProducts();
-        //WHEN
-        Assertions.assertThrows(ProductNotFountException.class, () -> {
-            final Product actual = productService.getProductByName("prod1");
-        });
-    }
-
-    @Test
-    @DisplayName("Searching for valid product by id")
-    public void getProductByIdValid() {
-        Product product1 = new Product();
-        product1.setId(1);
-
-        final Collection<Product> products = Collections.singletonList(
-                product1);
-        Mockito.doReturn(products).when(productRepository).getAllProducts();
-        //WHEN
-        final Product actual = productService.getProductById(1);
-        //THEN
-        Mockito.verify(productRepository, Mockito.times(1)).getAllProducts();
-        Assertions.assertEquals(actual, product1);
-    }
-
-    @Test()
-    @DisplayName("Searching for invalid product by id")
-    public void getProductByIdInvalid() {
-        Product product1 = new Product();
-        product1.setId(2);
-
-        final Collection<Product> products = Collections.singletonList(
-                product1);
-        Mockito.doReturn(products).when(productRepository).getAllProducts();
-        //WHEN
-        Assertions.assertThrows(ProductNotFountException.class, () -> {
-            final Product actual = productService.getProductById(1);
-        });
-    }
-
-    @Test()
-    @DisplayName("Saving product")
-    public void saveProduct() {
-        productService.createProduct(product);
-        Mockito.verify(productRepository, Mockito.times(1)).create(product);
-    }
-
-    @Test()
-    @DisplayName("Updating product")
-    public void updateProduct() {
-        productService.updateProduct(product);
-        Mockito.verify(productRepository, Mockito.times(1)).update(product);
-    }
-
-    @Test()
-    @DisplayName("Deleting product")
-    public void deleteProduct() {
-        productService.deleteProduct(2);
-        Mockito.verify(productRepository, Mockito.times(1)).delete(2);
-    }
+//    @Test
+//    @DisplayName("Searching for valid product by name")
+//    public void getProductByNameValid() {
+//        Product product1 = new Product();
+//        product1.setName("prod1");
+//
+//        final Collection<Product> products = Collections.singletonList(
+//                product1);
+//        Mockito.doReturn(products).when(productRepository).getAllProducts();
+//        //WHEN
+//        final Product actual = productService.getProductByName("prod1");
+//        //THEN
+//        Mockito.verify(productRepository, Mockito.times(1)).getAllProducts();
+//        Assertions.assertEquals(actual, product1);
+//    }
+//
+//    @Test()
+//    @DisplayName("Searching for invalid product by name")
+//    public void getProductByNameInvalid() {
+//        Product product1 = new Product();
+//        product1.setName("prod2");
+//
+//        final Collection<Product> products = Collections.singletonList(
+//                product1);
+//        Mockito.doReturn(products).when(productRepository).getAllProducts();
+//        //WHEN
+//        Assertions.assertThrows(ProductNotFountException.class, () -> {
+//            final Product actual = productService.getProductByName("prod1");
+//        });
+//    }
+//
+//    @Test
+//    @DisplayName("Searching for valid product by id")
+//    public void getProductByIdValid() {
+//        Product product1 = new Product();
+//        product1.setId(1);
+//
+//        final Collection<Product> products = Collections.singletonList(
+//                product1);
+//        Mockito.doReturn(products).when(productRepository).getAllProducts();
+//        //WHEN
+//        final Product actual = productService.getProductById(1);
+//        //THEN
+//        Mockito.verify(productRepository, Mockito.times(1)).getAllProducts();
+//        Assertions.assertEquals(actual, product1);
+//    }
+//
+//    @Test()
+//    @DisplayName("Searching for invalid product by id")
+//    public void getProductByIdInvalid() {
+//        Product product1 = new Product();
+//        product1.setId(2);
+//
+//        final Collection<Product> products = Collections.singletonList(
+//                product1);
+//        Mockito.doReturn(products).when(productRepository).getAllProducts();
+//        //WHEN
+//        Assertions.assertThrows(ProductNotFountException.class, () -> {
+//            final Product actual = productService.getProductById(1);
+//        });
+//    }
+//
+//    @Test()
+//    @DisplayName("Saving product")
+//    public void saveProduct() {
+//        productService.createProduct(product);
+//        Mockito.verify(productRepository, Mockito.times(1)).create(product);
+//    }
+//
+//    @Test()
+//    @DisplayName("Updating product")
+//    public void updateProduct() {
+//        productService.updateProduct(product);
+//        Mockito.verify(productRepository, Mockito.times(1)).update(product);
+//    }
+//
+//    @Test()
+//    @DisplayName("Deleting product")
+//    public void deleteProduct() {
+//        productService.deleteProduct(2);
+//        Mockito.verify(productRepository, Mockito.times(1)).delete(2);
+//    }
 }

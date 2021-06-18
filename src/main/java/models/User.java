@@ -3,6 +3,7 @@ package models;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -18,4 +19,6 @@ public class User {
     private Integer id;
     private String login;
     private String password;
+    @OneToMany(mappedBy = "customer", fetch= FetchType.LAZY)
+    private List<Order> orders;
 }

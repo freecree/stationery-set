@@ -35,7 +35,7 @@ public class ProductController {
         return this.productService.updateProduct(product);
     }
 
-    public void deleteProduct(int id) {
-        this.productService.deleteProduct(id);
+    public void deleteProduct(Product product) {
+        this.productService.deleteProduct(product);
     }
 }

@@ -25,7 +25,6 @@ public class HibernateConfigMySQL {
         return dataSource;
     }
 
-
     @Bean
     public Properties hibernateProperties() {
         Properties hibernateProperties = new Properties();

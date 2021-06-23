@@ -9,6 +9,7 @@ import repository.ProductRepository;
 
 import javax.transaction.Transactional;
 import java.util.Collection;
+import java.util.List;
 
 import static java.util.Optional.of;
 
@@ -55,7 +56,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Collection<Product> getProducts(){
+    public List<Product> getProducts(){
         return productRepository.findAll();
     }
 

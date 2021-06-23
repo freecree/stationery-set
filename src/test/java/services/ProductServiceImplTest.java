@@ -16,6 +16,7 @@ import repository.ProductRepository;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
 
 @ExtendWith(MockitoExtension.class)
 public class ProductServiceImplTest {
@@ -32,6 +33,22 @@ public class ProductServiceImplTest {
     public void setUp() {
         product = new Product();
     }
+
+//    @Test
+//    @DisplayName("testing for getting all products")
+//    public void getProducts() {
+//        //GIVEN
+//        Product product1 = new Product();
+//        product1.setName("prod1");
+//        productService.createProduct(product1);
+//
+//        final List<Product> expectedProducts = Collections.singletonList(
+//                product1);
+//        //WHEN
+//        final List<Product> actualProducts = productService.getProducts();
+//        //THEN
+//        Assertions.assertEquals(expectedProducts, actualProducts);
+//    }
 
 //    @Test
 //    @DisplayName("Searching for valid product by name")

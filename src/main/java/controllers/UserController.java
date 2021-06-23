@@ -22,4 +22,9 @@ public class UserController {
     public User createUser(User user) {
         return userRepository.save(user);
     }
+    public User getUserById(Integer id) {
+        return userRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Couldn't find user with id " + id));
+    }
+
 }

@@ -4,7 +4,9 @@ import config.SpringConfig;
 import models.Product;
 import models.User;
 import org.junit.Before;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -23,12 +25,21 @@ class UserControllerTest {
         userController = context.getBean("userController", UserController.class);
     }
     @Test
+    @DisplayName("testing for creating and getting user by id")
     public void createUser() {
-        User user = new User();
-        user.setLogin("test1User");
-        userController.createUser(user);
+        //GIVEN
+        User expectedUser = new User();
+        expectedUser.setLogin("user1");
+        expectedUser.setId(1);
+        //WHEN
+        userController.createUser(expectedUser);
+        User actualUser = userController.getUserById(1);
         System.out.println(userController.getUsers());
-
+        //User actualUser = new User();
+        //actualUser.setLogin("user1");
+        //actualUser.setId(2);
+        //THEN
+        Assertions.assertEquals(expectedUser, actualUser);
     }
 
 }

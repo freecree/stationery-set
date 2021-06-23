@@ -34,7 +34,7 @@ public class Main {
         productController.createProduct(product);
         System.out.println("category: ");
         System.out.println(categoryController.getCategoryById(1).getName());
-        List<Product> products = categoryController.getCategoryById(1).getProducts();
+        List<Product> products = productController.getProducts();//categoryController.getCategoryById(1).getProducts();
         System.out.println(products.get(0).getName());
         //System.out.println(categoryController.getCategoryById(1).getProducts());
         //System.out.println(userController.getUsers());

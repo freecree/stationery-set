@@ -25,11 +25,11 @@ public class OrderController {
     public void saveOrders(List<Order> orders) {
         orderService.saveOrders(orders);
     }
-    public Order updateOrder(int id) {
-        return orderService.updateOrder(id);
+    public Order updateOrder(Order order) {
+        return orderService.updateOrder(order);
     }
-    public void removeOrder(int id) {
-        orderService.removeOrder(id);
+    public void removeOrder(Order order) {
+        orderService.removeOrder(order);
     }
 
 }

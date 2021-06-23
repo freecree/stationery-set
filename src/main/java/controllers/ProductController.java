@@ -8,6 +8,7 @@ import services.ProductService;
 import services.ProductServiceImpl;
 
 import java.util.Collection;
+import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
@@ -15,7 +16,7 @@ public class ProductController {
 
     private final ProductService productService;
 
-    public Collection<Product> getProducts() {
+    public List<Product> getProducts() {
         return this.productService.getProducts();
     }
 

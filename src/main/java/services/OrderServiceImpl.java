@@ -18,7 +18,7 @@ public class OrderServiceImpl implements OrderService {
     private final OrderRepository orderRepository;
 
     public List<Order> getOrders() {
-        return orderRepository.getAllOrders();
+        return orderRepository.findAll();
     }
     public Order getOrderByCustomerId(int id) {
         return of(id)
@@ -41,11 +41,11 @@ public class OrderServiceImpl implements OrderService {
             orderRepository.save(order);
         }
     }
-    public Order updateOrder(int id) {
-        return orderRepository.update(id);
+    public Order updateOrder(Order order) {
+        return orderRepository.save(order);
     }
-    public void removeOrder(int id) {
-        orderRepository.remove(id);
+    public void removeOrder(Order order) {
+        orderRepository.delete(order);
     }
 
 }

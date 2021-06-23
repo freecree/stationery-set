@@ -9,8 +9,8 @@ public interface OrderService {
     Order getOrderByCustomerId(int id);
     Order getOrderByProductId(int id);
     void saveOrders(List<Order> orders);
-    Order updateOrder(int id);
-    void removeOrder(int id);
+    Order updateOrder(Order order);
+    void removeOrder(Order order);
 
 
 }

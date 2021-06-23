@@ -11,7 +11,7 @@ import java.util.List;
 @Setter
 @Getter
 @EqualsAndHashCode
-@ToString()
+@ToString(exclude = "orders")
 public class User {
 
     @Id
@@ -19,6 +19,8 @@ public class User {
     private Integer id;
     private String login;
     private String password;
-    @OneToMany(mappedBy = "customer", fetch= FetchType.LAZY)
+    //private List<String> testList;
+    @OneToMany(mappedBy = "customer", fetch= FetchType.EAGER)
+    @EqualsAndHashCode.Exclude
     private List<Order> orders;
 }

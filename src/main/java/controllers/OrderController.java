@@ -8,7 +8,7 @@ import services.OrderService;
 
 import java.util.List;
 
-@Controller
+//@Controller
 @RequiredArgsConstructor
 public class OrderController {
     private final OrderService orderService;

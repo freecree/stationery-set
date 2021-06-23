@@ -12,7 +12,7 @@ import java.util.List;
 
 import static java.util.Optional.of;
 
-@Service
+//@Service
 @RequiredArgsConstructor
 public class OrderServiceImpl implements OrderService {
     private final OrderRepository orderRepository;

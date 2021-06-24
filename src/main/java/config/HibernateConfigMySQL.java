@@ -11,7 +11,6 @@ import java.util.Properties;
 
 @Configuration
 @Profile("MySQL")
-@PropertySource("classpath:application.properties")
 public class HibernateConfigMySQL {
     @Bean
     public DataSource dataSource() {

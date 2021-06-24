@@ -1,7 +1,9 @@
 package services;
 
 import lombok.RequiredArgsConstructor;
+import models.Product;
 import models.ProductSet;
+//import org.json.simple.JSONObject;
 import org.springframework.stereotype.Service;
 import repository.ProductSetRepository;
 
@@ -19,6 +21,17 @@ public class ProductSetServiceImpl implements ProductSetService {
     }
     public void deleteSet(ProductSet productSet) {
         productSetRepository.delete(productSet);
+    }
+    public void addProductToSet(Integer setId, Product product, int productAmount) {
+//        ProductSet productSet = getSetById(setId);
+//        if (productSet.getProducts() == null) {
+//            System.out.println("Set is empty");
+//            JSONObject jsonObject = new JSONObject();
+//            jsonObject.put("id", product.getId());
+//            jsonObject.put("amount", productAmount);
+//            productSet.setProducts(jsonObject.toJSONString());
+//        }
+//        productSetRepository.save(productSet);
     }
 
 }

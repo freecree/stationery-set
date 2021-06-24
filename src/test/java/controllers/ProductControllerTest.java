@@ -2,8 +2,6 @@ package controllers;
 
 import config.SpringConfig;
 import models.Product;
-import models.PropertyValue;
-import models.User;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
@@ -12,10 +10,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import java.util.Collections;
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)
 class ProductControllerTest {
@@ -92,4 +87,6 @@ class ProductControllerTest {
         Assertions.assertEquals(expectedProduct, actualProduct);
         productController.deleteProduct(expectedProduct);
     }
+
+
 }

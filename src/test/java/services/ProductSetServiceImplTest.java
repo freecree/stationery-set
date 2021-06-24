@@ -1,16 +1,13 @@
 package services;
 
 import config.SpringConfig;
-import controllers.ProductController;
-import models.Product;
 import models.ProductSet;
+//import org.json.simple.JSONObject;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class ProductSetServiceImplTest {
     private static AnnotationConfigApplicationContext context;
@@ -34,6 +31,26 @@ class ProductSetServiceImplTest {
         //THEN
         Assertions.assertEquals(expectedProductSet, actualProductSet);
         productSetService.deleteSet(expectedProductSet);
+    }
+
+    @Test
+    @DisplayName("testing for adding product to productSet")
+    public void addProductToSet() {
+//        //GIVEN
+//        Product product = new Product();
+//        product.setName("product");
+//        ProductSet expectedProductSet = productSetService.createSet(productSet1);
+//        JSONObject expectedJson = new JSONObject();
+//        expectedJson.put("id", product.getId());
+//        expectedJson.put("amount", 5);
+//
+//        //WHEN
+//        productSetService.addProductToSet(expectedProductSet.getId(), product, 5);
+//        ProductSet actualProductSet = productSetService.getSetById(expectedProductSet.getId());
+//        //ProductSet actualProductSet = productSetService.getSetById(expectedProductSet.getId());
+//        //THEN
+//        Assertions.assertEquals(expectedJson.toJSONString(), actualProductSet.getProducts());
+//        //productSetService.deleteSet(expectedProductSet);
     }
 
 }

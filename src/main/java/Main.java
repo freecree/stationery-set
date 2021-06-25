@@ -4,10 +4,15 @@ import controllers.ProductController;
 import controllers.UserController;
 import models.Category;
 import models.Product;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.core.env.ConfigurableEnvironment;
+import services.TestService;
 
 import java.util.List;
+
+//@SpringBootApplication
 
 public class Main {
     public static void main(String[] args) {
@@ -36,6 +41,8 @@ public class Main {
         System.out.println(products.get(0).getName());
         //System.out.println(categoryController.getCategoryById(1).getProducts());
         //System.out.println(userController.getUsers());
+        TestService testService = context.getBean("testService", TestService.class);
+        System.out.println(testService.getTestRecords());
 
     }
 }

@@ -21,7 +21,7 @@ import com.vaadin.flow.server.PWA;
 import com.vaadin.flow.theme.Theme;
 import com.vaadin.flow.router.PageTitle;
 import application.views.mainpage.MainPageView;
-import application.views.about.AboutView;
+//import application.views.about.AboutView;
 
 /**
  * The main view is a top-level placeholder for other views.

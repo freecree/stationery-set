@@ -9,8 +9,8 @@ import services.ProductServiceImpl;
 
 @Configuration
 @PropertySource({"classpath:application.properties"}) //classpath:application.properties
-@ComponentScan(basePackages = {"controllers", "services", "models", "repository"})
-@EnableAutoConfiguration
+@ComponentScan(basePackages = {"controllers", "services", "models", "repository", "application.views"})
+//@EnableAutoConfiguration
 @Import(HibernateConfig.class)
 public class SpringConfig {
 //    @Bean(name = "prodController")

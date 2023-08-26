@@ -5,7 +5,7 @@ This project is designed as part of laboratory work of Development software for 
 Spring, Spring Boot, Hibernate, Data JPA, MySQL, H2, Vaadin, Junit, Mockito.
 
 ## Completed tasks
-●	Developing a business logic of creating a stationary set
-●	Performing CRUD operations
-●	Using MVC pattern
-●	Making module and integrational testing
+*	Developing a business logic of creating a stationary set
+*	Performing CRUD operations
+*	Using MVC pattern
+*	Making module and integrational testing
